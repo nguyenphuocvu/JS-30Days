@@ -1,0 +1,48 @@
+/* index.css */
+body {
+  background: #ffc600;
+  font-family: "Helvetica Neue", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.inbox {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  transition: background 0.2s;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item input[type="checkbox"] {
+  margin-right: 20px;
+  transform: scale(1.5);
+}
+
+.item p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.item:hover {
+  background: #f9f9f9;
+}
+
+.item input:checked + p {
+  text-decoration: line-through;
+  color: #999;
+}

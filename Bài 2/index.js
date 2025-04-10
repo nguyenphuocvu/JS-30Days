@@ -1,36 +1,24 @@
+
+
 function setDate() {
-  const currentHour = new Date();
+    const gioHienTai = new Date();
 
- 
-  function gocQuay(degree) {
-    return (degree / 60) * 360 + 90;
-  }
+    const seconds = gioHienTai.getSeconds();
+    const hienThiSeconds = (seconds * 10) % 60;
+    console.log(hienThiSeconds);
 
-  document.querySelector(".second-hand").style.transform = `rotate(${gocQuay(currentHour.getSeconds())}deg)`;
 
-  // Cập nhật phút
-  document.querySelector(".min-hand").style.transform = `rotate(${gocQuay(currentHour.getMinutes())}deg)`;
+    const minutes = gioHienTai.getMinutes();
+    const hours = gioHienTai.getHours() % 12;
 
-  // Cập nhật giờ
-  const gocGio = ((currentHour.getHours() % 12) / 12) * 360 + 90;
-  document.querySelector(".hour-hand").style.transform = `rotate(${gocGio}deg)`;
+
+    const secDeg = (seconds / 60) * 360 + 90;
+    const minDeg = (minutes / 60) *360 + 90;
+    const hourDeg = (hours / 12) * 360 + 90;
+
+    document.querySelector(".second-hand").style.transform = `rotate(${secDeg}deg)`;
+    document.querySelector(".min-hand").style.transform = `rotate(${minDeg}deg)`;
+    document.querySelector(".hour-hand").style.transform = `rotate(${hourDeg}deg)`;
 }
 
 setInterval(setDate, 1000);
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const clockFace = document.querySelector(".clock-face");
-
-  for (let i = 0; i < 12; i++) {
-    const mark = document.createElement("div");
-    mark.classList.add("mark");
-
-    mark.style.transform = `rotate(${i * 30}deg) translateY(-80px)`;
-
-    clockFace.appendChild(mark);
-  }
-});
-
-
-
