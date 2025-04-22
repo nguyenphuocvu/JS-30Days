@@ -1,0 +1,16 @@
+{
+  "name": "bai19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx browser-sync start --server --files \"*.html, *.css, *.js\""
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.3"
+  }
+}

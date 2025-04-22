@@ -1,0 +1,100 @@
+:root {
+  --base: #ffc600;
+  --spacing: 10px;
+  --blur: 0px;
+}
+
+body {
+  text-align: center;
+  color: white;
+  background-color: #193549;
+  font-weight: 100;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.h1 {
+  color: var(--base);
+}
+
+.controls {
+  margin-bottom: 50px;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+#img {
+  width: 800px;
+}
+
+#img {
+  /* padding: var(--spacing); */
+  /* background: var(--base); */
+  filter: blur(var(--blur));
+}
+
+#overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.resize-handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.dot-resize {
+  width: 10px;
+  height: 10px;
+  background-color: var(--base);
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: all;
+  z-index: 5;
+}
+
+.dot-resize.top-left {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  cursor: nwse-resize;
+}
+
+.dot-resize.top-right {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  cursor: nesw-resize;
+}
+
+.dot-resize.bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+  cursor: nesw-resize;
+}
+
+.dot-resize.bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+  cursor: nwse-resize;
+}
+
+.uploaded-img {
+  width: 200px;
+  height: auto;
+  margin: 10px;
+  object-fit: contain;
+}

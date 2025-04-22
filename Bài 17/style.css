@@ -1,0 +1,33 @@
+body {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  ul#bands {
+    list-style: none;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  ul#bands li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  ul#bands li::before {
+    content: '▪';
+    position: absolute;
+    left: 0;
+    color: black;
+  }
+  
