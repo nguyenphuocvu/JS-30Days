@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="top">
+      <div class="dropdownBackground">
+        <span class="arrow"></span>
+      </div>
+      <ul class="cool">
+        <li>
+          <a href="">About Me</a>
+          <div class="dropdown dropdown1">
+            <div class="bio">
+              <img
+                src="data:image/png;base64,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"
+                alt=""
+              />
+              <p>
+                Wes Bos sure does love web development . He teaches things like
+                JavaScript, Css and BBQ. Wait. BBQ
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <a href="">Courses</a>
+          <ul class="dropdown courses">
+            <li>
+              <span class="code">RFB</span>
+              <a href="https://www.w3schools.com/react/">React For Beginners</a>
+            </li>
+            <li>
+              <span class="code">ES6</span>
+              <a href="https://www.w3schools.com/js/js_es6.asp"
+                >ES6 For Everyone</a
+              >
+            </li>
+            <li>
+              <span class="code">STPU</span>
+              <a href="https://www.w3schools.com/react/"
+                >Sublime Text Power User</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="">Other Links</a>
+          <ul class="dropdown dropdown3">
+            <li><a class="button" href="https://x.com/home">Twiter</a></li>
+            <li>
+              <a class="button" href="https://www.facebook.com/">Facebook</a>
+            </li>
+            <li>
+              <a
+                class="button"
+                href="https://spiderum.com/bai-dang/Mot-vai-trang-blog-hay-hay-aVADmXLjfSwY"
+                >Blog</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <script src="./index.js"></script>
+  </body>
+</html>

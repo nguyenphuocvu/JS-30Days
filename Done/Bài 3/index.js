@@ -3,22 +3,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const img = document.getElementById("img");
   const overlay = document.getElementById("overlay");
 
+  let selectedImage = img; 
+
+
   inputs.forEach((input) => {
     input.addEventListener("input", () => {
       const value = input.value + "px";
       const rora = input.value;
 
+      if (!selectedImage) return;
+
       if (input.name === "spacing") {
-        img.style.padding = value;
+        selectedImage.style.padding = value;
       } else if (input.name === "blur") {
-        img.style.filter = `blur(${value})`;
+        selectedImage.style.filter = `blur(${value})`;
       } else if (input.name === "color") {
-        img.style.backgroundColor = rora;
-      } else if (input.name === "rorate") {
-        img.style.transform = `rorate(${rora}deg)`;
+        selectedImage.style.backgroundColor = rora;
+      } else if (input.name === "rotate") {
+        selectedImage.style.transform = `rotate(${rora}deg)`; 
       }
     });
   });
+
 
   function handleFileUpload(files) {
     Array.from(files).forEach((file) => {
@@ -30,22 +36,23 @@ document.addEventListener("DOMContentLoaded", () => {
       wrapper.style.top = "0px";
       wrapper.style.left = "0px";
       wrapper.innerHTML = `
-            <div>
-                <img src="${url}" class="uploaded-img" />
-                <div class="resize-handle">
-                    <div class="dot-resize top-left"></div>
-                    <div class="dot-resize top-right"></div>
-                    <div class="dot-resize bottom-left"></div>
-                    <div class="dot-resize bottom-right"></div>
-                </div>
-            </div>
-        `;
+        <div>
+          <img src="${url}" class="uploaded-img" />
+          <div class="resize-handle">
+            <div class="dot-resize top-left"></div>
+            <div class="dot-resize top-right"></div>
+            <div class="dot-resize bottom-left"></div>
+            <div class="dot-resize bottom-right"></div>
+          </div>
+        </div>
+      `;
 
       overlay.appendChild(wrapper);
       handleDrag(wrapper);
       handleResize(wrapper);
     });
   }
+
 
   const overlayInput = document.getElementById("overlayInput");
   overlayInput.addEventListener("change", (e) => {
@@ -54,14 +61,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function clickImg(target) {
     target.addEventListener("click", (e) => {
+ 
+      const allHandles = document.querySelectorAll(".resize-handle");
+      allHandles.forEach((h) => h.classList.remove("active"));
+
       const handle = target.querySelector(".resize-handle");
-      handle.classList.toggle("active");
+      handle.classList.add("active");
+
+      const img = target.querySelector("img");
+      selectedImage = img;
     });
   }
+  
+
+ 
   function handleDrag(target) {
     let isDragging = false;
     let offsetX, offsetY;
-    clickImg(target);
+
+    clickImg(target); 
 
     target.addEventListener("mousedown", (e) => {
       if (e.target.classList.contains("dot-resize")) return;
@@ -87,22 +105,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+
   function handleResize(target) {
     const handle = target.querySelector(".resize-handle");
     const img = target.querySelector("img");
     const dots = handle.querySelectorAll(".dot-resize");
-  
+
     let startX, startY, startWidth, startHeight;
     let isResizing = false;
-  
+
     dots.forEach((dot) => {
       dot.addEventListener("mousedown", (e) => {
         e.stopPropagation();
         startX = e.clientX;
+        startY = e.clientY;
         startWidth = img.offsetWidth;
         startHeight = img.offsetHeight;
         isResizing = true;
-  
+
         const corner = dot.classList.contains("top-left")
           ? "top-left"
           : dot.classList.contains("top-right")
@@ -110,20 +130,20 @@ document.addEventListener("DOMContentLoaded", () => {
           : dot.classList.contains("bottom-left")
           ? "bottom-left"
           : "bottom-right";
-  
+
         document.addEventListener("mousemove", (event) =>
           resizeMove(event, corner)
         );
         document.addEventListener("mouseup", stopResize);
       });
     });
-  
+
     function resizeMove(e, corner) {
       if (!isResizing) return;
-  
+
       const diffX = e.clientX - startX;
       const diffY = e.clientY - startY;
-  
+
       if (corner === "top-left") {
         img.style.width = `${startWidth - diffX}px`;
         img.style.height = `${startHeight - diffY}px`;
@@ -140,12 +160,11 @@ document.addEventListener("DOMContentLoaded", () => {
         img.style.height = `${startHeight + diffY}px`;
       }
     }
-  
+
     function stopResize() {
       isResizing = false;
       document.removeEventListener("mousemove", resizeMove);
       document.removeEventListener("mouseup", stopResize);
     }
   }
-  
 });

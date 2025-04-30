@@ -1,0 +1,92 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: #00c3c3 url('https://cdnv2.tgdd.vn/mwg-static/common/News/1575648/hinh-nen-dien-thoai-cute-30-2.jpg');
+    background-size: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+
+  .voiceinator {
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    text-align: center;
+  }
+  
+
+  .voiceinator h1 {
+    background: #ffc600;
+    margin: 0;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+  }
+  
+
+  .voiceinator select {
+    width: 90%;
+    padding: 10px;
+    margin: 20px auto 10px;
+    font-size: 16px;
+  }
+  
+
+  .voiceinator label {
+    display: block;
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+
+  .voiceinator input[type="range"] {
+    width: 90%;
+    margin: 10px auto;
+    display: block;
+  }
+  
+
+  .voiceinator textarea {
+    width: 90%;
+    height: 100px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    resize: none;
+    border: 1px solid #ccc;
+  }
+  
+
+  .voiceinator button {
+    width: 40%;
+    padding: 15px 0;
+    font-size: 18px;
+    border: none;
+    background: #ffc600;
+    color: black;
+    font-family: 'Comic Sans MS', cursive;
+    cursor: pointer;
+    margin: 10px;
+    transition: background 0.2s;
+  }
+  
+  .voiceinator button:hover {
+    background: #ffb100;
+  }
+  
+
+  #stop {
+    border-right: 1px solid white;
+  }
+  

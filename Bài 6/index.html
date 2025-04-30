@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài 6</title>
-    <link rel="stylesheet" href="./index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bài 6</title>
+  <link rel="stylesheet" href="./index.css" />
 </head>
 <body>
-    <form class="search-form">
-        <input type="text" class="search" placeholder="City or State">
-        <ul class="suggestions">
-            <li>Filter For A City</li>
-            <li>Or A State</li>
-        </ul>
-    </form>
-    <script src="./index.js"></script>
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State" />
+    <ul class="suggestions"></ul>
+    <div id="delete-drag" class="delete-area"> Thùng rác </div>
+    
+    <div id="drop-target" class="drop-area">
+        <ul id="dropped-list"  class="suggestions"></ul>
+    </div>
+
+    <div id="new-list-area" >
+       <button id="add-list" class="btn-add"> + </button>
+    </div>
+
+
+    <div id="new-list-container"></div>
+  </form>
+
+  <script src="./index.js"></script>
 </body>
 </html>
-
-<!-- Tính năng nhập trước  -->
